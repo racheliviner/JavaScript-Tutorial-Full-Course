@@ -58,20 +58,24 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 document.querySelectorAll('.js-add-to-cart').forEach(button => {
   button.addEventListener('click', () => {  
     let itemExist;
-    let buttonId = button.dataset.productId
-    
+    let buttonId = button.dataset.productId;
+
     cart.forEach(item => {
       if (buttonId === item.id){
         item.quantity++;
         itemExist = true; 
       }   
-    })
-    
-    if (!itemExist)
+    }); 
+
+    if (!itemExist){
       cart.push({
         id: buttonId,
         quantity: 1
-      })
+      });
+    } 
 
-    })
-})
+    let cartQuantity = 0;
+    cart.forEach(item => cartQuantity+= item.quantity);
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+  });
+});
