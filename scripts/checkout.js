@@ -1,5 +1,5 @@
 import { products } from "../data/products.js";
-import { cart } from "../data/cart.js";
+import { cart, removeFromCart} from "../data/cart.js";
 import { formatCurrency } from "./utils/money.js";
 
 function findMatchingItem(cartItemId){
@@ -21,8 +21,7 @@ function setupAddDeleteBtn(){
                 document.querySelector(`.js-cart-item-container-${productIndex}`)
                 .remove();
 
-                cart.splice(productIndex, 1);
-
+                removeFromCart(productIndex);
             })
         });
 }

@@ -81,4 +81,5 @@ function setupAddToCartBtn(){
 }
 
 DisplayTheProducts();
+updateCartQuantity(); 
 setupAddToCartBtn();
