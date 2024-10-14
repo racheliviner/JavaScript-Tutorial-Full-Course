@@ -13,7 +13,8 @@ export function addToCart(productId){
     if (!itemExist){
       cart.push({
         id: productId,
-        quantity: 1
+        quantity: 1,
+        deliveryOptionId: '1'
       });
     }
 
@@ -27,8 +28,4 @@ export function removeFromCart(productIndex){
 
 function saveToStorage(){
     localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-function loadFromStorage(){
-    localStorage.removeItem()
 }
