@@ -28,15 +28,6 @@ export function removeFromCart(productIndex){
     saveToStorage();
 }
 
-export function findMatchingItem(cartItemId) {
-  let matchingItem;
-  products.forEach(product => {
-      if (cartItemId === product.id)
-          matchingItem = product;
-  })
-  return matchingItem;
-}
-
 export function updateDeliveryOption(productId, deliveryOptionId){
   cart.forEach(cartItem => {
     if (productId === cartItem.id){
@@ -45,6 +36,15 @@ export function updateDeliveryOption(productId, deliveryOptionId){
   });
 
   saveToStorage();
+}
+
+export function findMatchingItem(cartItemId) {
+  let matchingItem;
+  products.forEach(product => {
+      if (cartItemId === product.id)
+          matchingItem = product;
+  })
+  return matchingItem;
 }
 
 function saveToStorage(){
