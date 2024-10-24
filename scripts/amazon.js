@@ -84,7 +84,18 @@ function setupAddToCartBtn(){
 }
 
 async function loadHomePage(){
-  await loadProducts();
+  try {
+    await loadProducts();
+  } 
+  
+  catch (error) {
+    alert (
+      `Unexpected error while loading the products from the Backend.
+      Please try again later.`
+    );
+    console.log(error);
+  }
+
   DisplayTheProducts();
 }
 
