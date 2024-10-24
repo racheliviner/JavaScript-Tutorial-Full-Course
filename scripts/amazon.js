@@ -83,4 +83,6 @@ function setupAddToCartBtn(){
   });
 }
 
-loadProducts(DisplayTheProducts);
+loadProducts().then(() => {
+  DisplayTheProducts();
+});

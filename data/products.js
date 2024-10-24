@@ -1,16 +1,15 @@
 export let products = [];
 
-export function loadProducts(func){
-  const xhr = new XMLHttpRequest();
-
-  xhr.addEventListener('load', () => {
-    products = JSON.parse(xhr.response);
-
-    func();
+export function loadProducts(){
+  const promise = fetch('https://supersimplebackend.dev/products')
+  .then((response) => {
+    return response.json();
+  })
+  .then((productsData) => {
+    products = productsData;
   })
 
-  xhr.open('Get', 'https://supersimplebackend.dev/products');
-  xhr.send();
+  return promise
 }
 
 // export const products = [
