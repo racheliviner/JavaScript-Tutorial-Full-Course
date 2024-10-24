@@ -1,4 +1,4 @@
-import { products } from "../data/products.js";
+import { products, loadProducts } from "../data/products.js";
 import { cart, addToCart } from "../data/cart.js";
 import { formatCurrency } from "./utils/money.js";
 
@@ -60,6 +60,9 @@ function DisplayTheProducts(){
 
   document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
+
+  updateCartQuantity(); 
+  setupAddToCartBtn();
 }
 
 function updateCartQuantity(){
@@ -80,6 +83,4 @@ function setupAddToCartBtn(){
   });
 }
 
-DisplayTheProducts();
-updateCartQuantity(); 
-setupAddToCartBtn();
+loadProducts(DisplayTheProducts);
