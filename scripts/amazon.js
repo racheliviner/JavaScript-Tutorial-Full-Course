@@ -83,6 +83,9 @@ function setupAddToCartBtn(){
   });
 }
 
-loadProducts().then(() => {
+async function loadHomePage(){
+  await loadProducts();
   DisplayTheProducts();
-});
+}
+
+loadHomePage();
