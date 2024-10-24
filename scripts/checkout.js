@@ -12,6 +12,7 @@ async function loadCheckoutPage() {
             `Unexpected error while loading the products from the Backend.
             Please try again later.`
           );
+        console.log(error);
     }
 
     displayTheOrderSummary();
